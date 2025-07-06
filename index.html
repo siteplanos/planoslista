@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planos</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ff006e' stroke='%23fff' stroke-width='3'/><text x='50' y='35' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' fill='white'>18</text><text x='50' y='65' font-family='Arial,sans-serif' font-size='20' font-weight='bold' text-anchor='middle' fill='white'>+</text></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ff006e' stroke='%23ffffff' stroke-width='4'/><text x='50' y='58' font-family='Arial,sans-serif' font-size='28' font-weight='bold' text-anchor='middle' fill='%23ffffff'>18%2B</text></svg>" type="image/svg+xml">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
@@ -21,7 +15,6 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-
         .urgency-bar {
             position: fixed;
             top: 0;
@@ -37,7 +30,6 @@
             box-shadow: 0 2px 20px rgba(255, 0, 0, 0.5);
             animation: pulse-red 2s infinite;
         }
-
         .timer-display {
             font-size: 22px;
             font-weight: 700;
@@ -46,28 +38,17 @@
             margin: 5px 0;
             letter-spacing: 2px;
         }
-
         @keyframes pulse-red {
             0%, 100% { box-shadow: 0 2px 20px rgba(255, 0, 0, 0.5); }
             50% { box-shadow: 0 2px 30px rgba(255, 0, 0, 0.8); }
         }
-
-        .main-content {
-            margin-top: 100px;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
+        .main-content { margin-top: 100px; padding: 40px 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
         .header-section {
             text-align: center;
             margin-bottom: 60px;
             position: relative;
         }
-
         .main-title {
             font-size: 3.5rem;
             font-weight: 700;
@@ -79,19 +60,16 @@
             text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
             animation: glow-text 3s ease-in-out infinite alternate;
         }
-
         @keyframes glow-text {
             from { filter: brightness(1); }
             to { filter: brightness(1.2); }
         }
-
         .subtitle {
             font-size: 1.4rem;
             color: #cccccc;
             margin-bottom: 30px;
             font-weight: 300;
         }
-
         .warning-text {
             background: linear-gradient(90deg, #ff0000, #ff4444);
             padding: 15px 25px;
@@ -100,56 +78,34 @@
             font-weight: 600;
             animation: blink 1.5s infinite;
         }
-
         @keyframes blink {
             0%, 50% { opacity: 1; }
             51%, 100% { opacity: 0.7; }
         }
-
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 50px;
+            align-items: stretch;
         }
-
-        /* Responsividade para tablets */
         @media screen and (max-width: 1200px) {
-            .plans-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
+            .plans-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
         }
-
-        /* Responsividade para mobile */
         @media screen and (max-width: 768px) {
-            .plans-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .plan-card.vip {
-                transform: none;
-            }
-            
-            .urgency-bar {
-                font-size: 14px;
-                padding: 10px 15px;
-            }
-            
-            .timer-display {
-                font-size: 18px;
-            }
+            .plans-grid { grid-template-columns: 1fr; gap: 20px; }
+            .main-title { font-size: 2.5rem; }
+            .plan-card.vip { transform: none; }
+            .urgency-bar { font-size: 14px; padding: 10px 15px; }
+            .timer-display { font-size: 18px; }
         }
-
+        .plans-row {
+            display: contents;
+        }
         .plan-card {
             background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
             border-radius: 25px;
-            padding: 40px 30px;
+            padding: 30px;
             text-align: center;
             position: relative;
             transition: all 0.4s ease;
@@ -159,9 +115,10 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 550px;
+            min-height: 420px;
+            height: 100%;
+            margin-bottom: 0;
         }
-
         .plan-card::before {
             content: '';
             position: absolute;
@@ -173,24 +130,18 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-
-        .plan-card:hover::before {
-            opacity: 1;
-        }
-
+        .plan-card:hover::before { opacity: 1; }
         .plan-card:hover {
             transform: translateY(-15px) scale(1.02);
             border-color: #ff006e;
             box-shadow: 0 25px 50px rgba(255, 0, 110, 0.3);
         }
-
         .plan-card.vip {
             background: linear-gradient(145deg, #2a1a3a, #1a0f2a);
             border: 3px solid #8338ec;
             transform: scale(1.05);
             position: relative;
         }
-
         .plan-card.vip::after {
             content: 'LIMITADO';
             position: absolute;
@@ -204,7 +155,10 @@
             transform: rotate(45deg);
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
         }
-
+        .plan-header {
+            flex-shrink: 0;
+            margin-bottom: 25px;
+        }
         .plan-title {
             font-size: 1.8rem;
             font-weight: 700;
@@ -213,12 +167,19 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 25px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .price-section {
-            margin: 30px 0;
+        .price-section { 
+            margin-bottom: 30px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-
         .original-price {
             font-size: 1.3rem;
             color: #ff4444;
@@ -226,8 +187,10 @@
             position: relative;
             margin-bottom: 10px;
             opacity: 0.7;
+            height: 30px;
+            display: flex;
+            align-items: center;
         }
-
         .current-price {
             font-size: 3rem;
             font-weight: 700;
@@ -236,30 +199,48 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 0 0 20px rgba(6, 255, 165, 0.5);
-            margin-bottom: 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
+        .plan-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
         .features-list {
             list-style: none;
             text-align: left;
-            margin: 25px 0;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 90px;
         }
-
         .features-list li {
-            margin: 12px 0;
-            padding-left: 30px;
+            margin: 8px 0;
+            padding-left: 35px;
             position: relative;
             color: #e0e0e0;
             font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.4;
         }
-
         .features-list li::before {
-            content: '💋';
+            content: '💎';
             position: absolute;
             left: 0;
             font-size: 16px;
+            top: 0;
         }
-
+        .plan-footer {
+            margin-top: 18px;
+            flex-shrink: 0;
+        }
         .buy-button {
             background: linear-gradient(45deg, #ff006e, #8338ec);
             color: white;
@@ -275,9 +256,11 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            margin-top: auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
         .buy-button::before {
             content: '';
             position: absolute;
@@ -288,16 +271,11 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
-
-        .buy-button:hover::before {
-            left: 100%;
-        }
-
+        .buy-button:hover::before { left: 100%; }
         .buy-button:hover {
             transform: scale(1.05);
             box-shadow: 0 15px 35px rgba(255, 0, 110, 0.4);
         }
-
         .discount-badge {
             position: absolute;
             top: -10px;
@@ -312,7 +290,6 @@
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
             z-index: 2;
         }
-
         .floating-hearts {
             position: fixed;
             top: 0;
@@ -322,31 +299,18 @@
             pointer-events: none;
             z-index: -1;
         }
-
         .heart {
             position: absolute;
             color: rgba(255, 0, 110, 0.1);
             font-size: 20px;
             animation: float-heart 8s infinite linear;
         }
-
         @keyframes float-heart {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
-
         .checkout-page {
             position: fixed;
             top: 0;
@@ -366,12 +330,10 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .checkout-page.active {
             display: flex;
             opacity: 1;
         }
-
         .payment-container {
             background: transparent;
             border: 3px solid white;
@@ -387,12 +349,7 @@
             position: relative;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
-
-        .payment-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
+        .payment-header { text-align: center; margin-bottom: 40px; }
         .payment-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -402,13 +359,7 @@
             background-clip: text;
             margin-bottom: 15px;
         }
-
-        .payment-subtitle {
-            font-size: 1.2rem;
-            color: #cccccc;
-            font-weight: 300;
-        }
-
+        .payment-subtitle { font-size: 1.2rem; color: #cccccc; font-weight: 300; }
         .checkout-timer {
             font-size: 28px;
             font-weight: 700;
@@ -418,12 +369,10 @@
             letter-spacing: 2px;
             animation: pulse-yellow 2s infinite;
         }
-
         @keyframes pulse-yellow {
             0%, 100% { text-shadow: 0 0 15px rgba(255, 255, 0, 0.8); }
             50% { text-shadow: 0 0 25px rgba(255, 255, 0, 1); }
         }
-
         .qr-code-container {
             background: transparent;
             border: 2px solid white;
@@ -436,14 +385,12 @@
             margin-bottom: 30px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
-
         .qr-placeholder {
             color: #666;
             font-size: 1.3rem;
             text-align: center;
             font-weight: 300;
         }
-
         .pix-key-container {
             background: transparent;
             border: 2px solid white;
@@ -460,17 +407,14 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         .pix-key-container:hover {
             border-color: #06ffa5;
             box-shadow: 0 0 20px rgba(6, 255, 165, 0.3);
         }
-
         .pix-key-container.copied {
             border-color: #06ffa5;
             box-shadow: 0 0 25px rgba(6, 255, 165, 0.5);
         }
-
         .pix-key-text {
             color: #fff;
             font-size: 1rem;
@@ -478,14 +422,12 @@
             font-weight: 400;
             font-family: monospace;
         }
-
         .pix-placeholder {
             color: #666;
             font-size: 1.1rem;
             text-align: center;
             font-weight: 300;
         }
-
         .copy-indicator {
             position: absolute;
             top: -40px;
@@ -501,11 +443,7 @@
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
-
-        .copy-indicator.show {
-            opacity: 1;
-        }
-
+        .copy-indicator.show { opacity: 1; }
         .close-checkout {
             position: absolute;
             top: 20px;
@@ -524,12 +462,10 @@
             align-items: center;
             justify-content: center;
         }
-
         .close-checkout:hover {
             transform: scale(1.1);
             box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
         }
-
         .instructions {
             text-align: center;
             color: #999;
@@ -547,25 +483,17 @@
     <div class="checkout-page" id="checkoutPage">
         <div class="payment-container">
             <button class="close-checkout" onclick="closeCheckout()">×</button>
-            
             <div class="payment-header">
                 <h2 class="payment-title">Pagamento PIX</h2>
                 <div class="checkout-timer" id="checkoutTimer">15:00</div>
                 <p class="payment-subtitle">Escaneie o QR Code ou use a chave PIX</p>
             </div>
-
             <div class="qr-code-container">
-                <div class="qr-placeholder">
-                    QR CODE
-                </div>
+                <div class="qr-placeholder">QR CODE</div>
             </div>
-
             <div class="pix-key-container">
-                <div class="pix-placeholder">
-                    CHAVE PIX
-                </div>
+                <div class="pix-placeholder">CHAVE PIX</div>
             </div>
-
             <div class="instructions">
                 Após o pagamento, você receberá acesso imediato ao conteúdo<br>
                 via WhatsApp ou e-mail cadastrado
@@ -574,7 +502,6 @@
     </div>
 
     <div class="floating-hearts" id="heartsContainer"></div>
-
     <div class="main-content">
         <div class="container">
             <div class="header-section">
@@ -584,110 +511,120 @@
                     🔥 Preços promocionais por tempo limitado!
                 </div>
             </div>
-
             <div class="plans-grid">
-                <!-- Plano Sedução -->
-                <div class="plan-card">
-                    <div class="discount-badge">53% OFF</div>
-                    <h2 class="plan-title">✨ Plano Sedução</h2>
-                    <div class="price-section">
-                        <div class="original-price">R$ 14,90</div>
-                        <div class="current-price">R$ 6,90</div>
+                <!-- Linha 1 -->
+                <div class="plans-row">
+                    <!-- Plano Básico -->
+                    <div class="plan-card">
+                        <div class="discount-badge">53% OFF</div>
+                        <div class="plan-header">
+                            <h2 class="plan-title">💎 Plano Básico</h2>
+                            <div class="price-section">
+                                <div class="original-price">R$ 14,90</div>
+                                <div class="current-price">R$ 6,90</div>
+                            </div>
+                        </div>
+                        <div class="plan-content">
+                            <ul class="features-list">
+                                <li>8 fotos nuas variadas</li>
+                                <li>1 vídeo exclusivo sensual</li>
+                            </ul>
+                            <div class="plan-footer">
+                                <button class="buy-button">🛒 Comprar</button>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>100 fotos sensuais exclusivas</li>
-                        <li>Vídeos personalizados feitos para você</li>
-                        <li>Acesso imediato ao conteúdo</li>
-                        <li>Qualidade HD garantida</li>
-                    </ul>
-                    <button class="buy-button">🛒 Comprar</button>
+                    <!-- Plano VIP -->
+                    <div class="plan-card vip">
+                        <div class="discount-badge">49% OFF</div>
+                        <div class="plan-header">
+                            <h2 class="plan-title">💎 Plano VIP</h2>
+                            <div class="price-section">
+                                <div class="original-price">R$ 24,90</div>
+                                <div class="current-price">R$ 12,60</div>
+                            </div>
+                        </div>
+                        <div class="plan-content">
+                            <ul class="features-list">
+                                <li>20 fotos nuas e de fetiche</li>
+                                <li>2 vídeos eróticos variados</li>
+                            </ul>
+                            <div class="plan-footer">
+                                <button class="buy-button">🛒 Comprar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Plano Fetiche -->
-                <div class="plan-card">
-                    <div class="discount-badge">49% OFF</div>
-                    <h2 class="plan-title">🔥 Plano Fetiche</h2>
-                    <div class="price-section">
-                        <div class="original-price">R$ 24,90</div>
-                        <div class="current-price">R$ 12,60</div>
+                <!-- Linha 2 -->
+                <div class="plans-row">
+                    <!-- Plano Premium -->
+                    <div class="plan-card">
+                        <div class="discount-badge">43% OFF</div>
+                        <div class="plan-header">
+                            <h2 class="plan-title">💎 Plano Premium</h2>
+                            <div class="price-section">
+                                <div class="original-price">R$ 39,90</div>
+                                <div class="current-price">R$ 22,90</div>
+                            </div>
+                        </div>
+                        <div class="plan-content">
+                            <ul class="features-list">
+                                <li>40 fotos sensuais exclusivas</li>
+                                <li>3 vídeos íntimos variados</li>
+                                <li>1 chamada de vídeo privada (5 min)</li>
+                            </ul>
+                            <div class="plan-footer">
+                                <button class="buy-button">🛒 Comprar</button>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>Vídeos transando intensos</li>
-                        <li>Conteúdo bem safado e explícito</li>
-                        <li>Fetiches realizados</li>
-                        <li>Material sem censura</li>
-                    </ul>
-                    <button class="buy-button">🛒 Comprar</button>
-                </div>
-
-                <!-- Plano Intimidade -->
-                <div class="plan-card">
-                    <div class="discount-badge">43% OFF</div>
-                    <h2 class="plan-title">💕 Plano Intimidade</h2>
-                    <div class="price-section">
-                        <div class="original-price">R$ 39,90</div>
-                        <div class="current-price">R$ 22,90</div>
+                    <!-- Plano Elite -->
+                    <div class="plan-card vip">
+                        <div class="discount-badge">58% OFF</div>
+                        <div class="plan-header">
+                            <h2 class="plan-title">💎 Plano Elite</h2>
+                            <div class="price-section">
+                                <div class="original-price">R$ 118,00</div>
+                                <div class="current-price">R$ 49,99</div>
+                            </div>
+                        </div>
+                        <div class="plan-content">
+                            <ul class="features-list">
+                                <li>100 fotos nuas e de fetiche</li>
+                                <li>5 vídeos exclusivos e variados</li>
+                                <li>1 chamada de vídeo exclusiva (15 min)</li>
+                            </ul>
+                            <div class="plan-footer">
+                                <button class="buy-button">🛒 Comprar</button>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>Chamada de vídeo de 15 minutos</li>
-                        <li>Pack com 250 fotos exclusivas</li>
-                        <li>Interação direta e pessoal</li>
-                        <li>Momentos íntimos únicos</li>
-                    </ul>
-                    <button class="buy-button">🛒 Comprar</button>
-                </div>
-
-                <!-- Plano VIP -->
-                <div class="plan-card vip">
-                    <div class="discount-badge">58% OFF</div>
-                    <h2 class="plan-title">👑 Plano VIP</h2>
-                    <div class="price-section">
-                        <div class="original-price">R$ 118,00</div>
-                        <div class="current-price">R$ 49,99</div>
-                    </div>
-                    <ul class="features-list">
-                        <li>100 vídeos exclusivos</li>
-                        <li>500 fotos em alta resolução</li>
-                        <li>Chamada de vídeo de 30 minutos</li>
-                        <li>Prioridade nos pedidos personalizados</li>
-                        <li>Acesso vitalício ao conteúdo</li>
-                        <li>Suporte 24/7 exclusivo</li>
-                    </ul>
-                    <button class="buy-button">🛒 Comprar</button>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
         // Timer de 5 minutos da página principal
         let timeLeft = 300; // 5 minutos em segundos
-        
         // Timer de 15 minutos para checkout
         let checkoutTimeLeft = 900; // 15 minutos em segundos
         let checkoutTimerInterval;
-
         function updateTimer() {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
             const timerElement = document.getElementById('timer');
-            
             timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-            
             if (timeLeft > 0) {
                 timeLeft--;
             } else {
                 timeLeft = 300; // Reinicia quando chega a zero
             }
         }
-
         function updateCheckoutTimer() {
             const minutes = Math.floor(checkoutTimeLeft / 60);
             const seconds = checkoutTimeLeft % 60;
             const checkoutTimerElement = document.getElementById('checkoutTimer');
-            
             checkoutTimerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-            
             if (checkoutTimeLeft > 0) {
                 checkoutTimeLeft--;
             } else {
@@ -695,26 +632,19 @@
                 closeCheckout();
             }
         }
-
         function startCheckoutTimer() {
             checkoutTimeLeft = 900; // Reinicia para 15 minutos
             checkoutTimerInterval = setInterval(updateCheckoutTimer, 1000);
         }
-
         function stopCheckoutTimer() {
             if (checkoutTimerInterval) {
                 clearInterval(checkoutTimerInterval);
             }
         }
-
         // Atualiza o timer principal a cada segundo
         setInterval(updateTimer, 1000);
-
         // Reinicia timer quando a página carrega
-        window.addEventListener('load', function() {
-            timeLeft = 300;
-        });
-
+        window.addEventListener('load', function() { timeLeft = 300; });
         // Efeito de corações flutuantes
         function createHeart() {
             const heart = document.createElement('div');
@@ -723,16 +653,11 @@
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDelay = Math.random() * 8 + 's';
             document.getElementById('heartsContainer').appendChild(heart);
-            
             // Remove o coração após a animação
-            setTimeout(() => {
-                heart.remove();
-            }, 8000);
+            setTimeout(() => { heart.remove(); }, 8000);
         }
-
         // Cria corações periodicamente
         setInterval(createHeart, 2000);
-
         // Efeito nos botões
         document.querySelectorAll('.buy-button').forEach(button => {
             button.addEventListener('click', function() {
@@ -742,27 +667,23 @@
                 startCheckoutTimer();
             });
         });
-
         // Função para fechar o checkout
         function closeCheckout() {
             document.getElementById('checkoutPage').classList.remove('active');
             // Para o timer do checkout
             stopCheckoutTimer();
         }
-
         // Fechar checkout com ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeCheckout();
             }
         });
-
         // Efeito de hover nos cards
         document.querySelectorAll('.plan-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.zIndex = '10';
             });
-            
             card.addEventListener('mouseleave', function() {
                 this.style.zIndex = '1';
             });
